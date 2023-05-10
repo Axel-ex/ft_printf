@@ -6,11 +6,12 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:00:11 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/10 15:53:50 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:34:23 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdarg.h>
 
 int	check_print(char c, va_list args)
 {
@@ -18,9 +19,11 @@ int	check_print(char c, va_list args)
 
 	bytes = 0;
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
+		bytes = ft_printchar(va_arg(args, int));
 	if (c == 's')
-		ft_putstr(va_arg(args, const char *));
+		bytes = ft_printstr(va_arg(args, const char *));
+	if (c == 'd')
+		bytes = ft_printnbr(va_arg(args, int));
 	return (bytes);
 }
 
@@ -38,7 +41,10 @@ int	ft_printf(const char *format, ...)
 			format++;
 		}
 		else
+		{
 			write(1, format, 1);
+			bytes++;
+		}
 		format++;
 	}
 	return (bytes);
