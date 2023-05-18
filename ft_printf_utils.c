@@ -6,10 +6,11 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:42:39 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/14 17:10:31 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:39:12 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_printchar(int c)
@@ -40,6 +41,11 @@ int	nb_size(int nb)
 	size = 0;
 	if (nb == 0)
 		return (1);
+	if (nb < 0)
+	{
+		size++;
+		nb = -nb;
+	}
 	while (nb > 0)
 	{
 		nb = nb / 10;
@@ -63,9 +69,9 @@ int	ft_printnb(int nb)
 	if (n >= 10)
 	{
 		ft_printnb(n / 10);
-		ft_printnb(n % 10);
+		n = n % 10;
 	}
 	if (n < 9)
-		write(1, &n + 48, 1);
+		ft_putchar_fd(n + 48, 1);
 	return (nb_size(n));
 }
