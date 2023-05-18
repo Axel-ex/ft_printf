@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:00:11 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/16 17:08:45 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:16:17 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int	check_print(char c, va_list args)
 	if (c == 'd' || c == 'i')
 		bytes = ft_printnb(va_arg(args, int));
 	if (c == 'p')
-		bytes = ft_print_pointer(va_arg(args, unsigned long));
+		bytes = ft_printpointer(va_arg(args, unsigned long long));
+	if (c == 'x')
+		bytes = ft_printhexa(va_arg(args, unsigned long));
+	if (c == 'X')
+		bytes = ft_printhexa_up(va_arg(args, unsigned long));
 	return (bytes);
 }
 

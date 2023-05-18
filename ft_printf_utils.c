@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:42:39 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/16 16:39:12 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:49:49 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	ft_printstr(const char *s)
 	}
 	return (i);
 }
-
-//function to calculate size of number
 
 int	nb_size(int nb)
 {
@@ -71,7 +69,6 @@ int	ft_printnb(int nb)
 		ft_printnb(n / 10);
 		n = n % 10;
 	}
-	if (n < 9)
-		ft_putchar_fd(n + 48, 1);
+	ft_putchar_fd(n + 48, 1);
 	return (nb_size(n));
 }
