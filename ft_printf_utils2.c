@@ -6,11 +6,10 @@
 /*   By: axelchab <achabrer@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:22 by axelchab          #+#    #+#             */
-/*   Updated: 2023/05/18 14:26:15 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/19 10:37:41 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_printhexa(unsigned long long nb)
@@ -67,5 +66,16 @@ int	ft_printpointer(unsigned long long pointer)
 	count = 2;
 	write(1, "0x", 2);
 	count = ft_printhexa(pointer);
+	return (count);
+}
+
+int	ft_printunsigned(unsigned int nb)
+{
+	int	count;
+
+	count = 0;
+	if (nb < 0)
+		nb -= 4294967295;
+	count = ft_printnb(nb);
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:33:33 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/18 14:12:43 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/19 10:39:29 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_printnb(int nb);
 int		ft_printpointer(unsigned long long pointer);
 int		ft_printhexa(unsigned long long nb);
 int		ft_printhexa_up(unsigned long long nb);
+int		ft_printunsigned(unsigned int nb);
 
 #endif

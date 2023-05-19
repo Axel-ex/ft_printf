@@ -6,11 +6,10 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:42:39 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/18 14:49:49 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/19 10:58:01 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_printchar(int c)
@@ -57,8 +56,6 @@ int	ft_printnb(int nb)
 	long	n;
 
 	n = nb;
-	if (n == 0)
-		write(1, "0", 1);
 	if (n < 0)
 	{
 		write(1, "-", 1);
