@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:42:39 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/19 10:58:01 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:18:20 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int	ft_printchar(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_printstr(const char *s)
 {
 	int	i;
 
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (s[i])
 	{
@@ -54,7 +58,9 @@ int	nb_size(int nb)
 int	ft_printnb(int nb)
 {
 	long	n;
+	int		size;
 
+	size = nb_size(nb);
 	n = nb;
 	if (n < 0)
 	{
@@ -67,5 +73,5 @@ int	ft_printnb(int nb)
 		n = n % 10;
 	}
 	ft_putchar_fd(n + 48, 1);
-	return (nb_size(n));
+	return (size);
 }

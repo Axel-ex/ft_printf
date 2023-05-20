@@ -6,39 +6,57 @@
 /*   By: axelchab <achabrer@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:22 by axelchab          #+#    #+#             */
-/*   Updated: 2023/05/19 10:37:41 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/20 08:51:29 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Libft/libft.h"
 #include "ft_printf.h"
 
-int	ft_printhexa(unsigned long long nb)
+int	size_hexa(unsigned int nb)
+{
+	int	size;
+
+	size = 0;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+	{
+		nb = -nb;
+		size++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 16;
+		size++;
+	}
+	return (size);
+}
+
+int	ft_printhexa(unsigned int nb)
 {
 	int		count;
 	char	*base;
 
-	count = 0;
 	base = "0123456789abcdef";
+	count = size_hexa(nb);
 	if (nb < 0)
-	{
 		nb = -nb;
-		count = ft_printchar('-');
-	}
 	if (nb > 16)
 	{
 		ft_printhexa(nb / 16);
 		nb = nb % 16;
 	}
-	count += ft_printchar(base[nb]);
+	ft_printchar(base[nb]);
 	return (count);
 }
 
-int	ft_printhexa_up(unsigned long long nb)
+int	ft_printhexa_up(unsigned int nb)
 {
 	int		count;
 	char	*base;
 
-	count = 0;
+	count = size_hexa(nb);
 	base = "0123456789ABCDEF";
 	if (nb < 0)
 	{
@@ -50,7 +68,7 @@ int	ft_printhexa_up(unsigned long long nb)
 		ft_printhexa_up(nb / 16);
 		nb = nb % 16;
 	}
-	count += ft_printchar(base[nb]);
+	ft_printchar(base[nb]);
 	return (count);
 }
 
@@ -58,24 +76,34 @@ int	ft_printpointer(unsigned long long pointer)
 {
 	int	count;
 
+	count = 2 * size_hexa(pointer);
+	write(1, "0x", 2);
 	if (!pointer)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		count += write(1, "0", 1);
+		return (count);
 	}
-	count = 2;
-	write(1, "0x", 2);
-	count = ft_printhexa(pointer);
+	ft_printhexa(pointer);
 	return (count);
 }
 
 int	ft_printunsigned(unsigned int nb)
 {
-	int	count;
+	int				count;
+	unsigned long	n;
 
-	count = 0;
-	if (nb < 0)
-		nb -= 4294967295;
-	count = ft_printnb(nb);
+	count = nb_size(nb);
+	n = nb;
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 9)
+	{
+		ft_printunsigned(n / 10);
+		n = n % 10;
+	}
+	ft_putchar_fd(n + 48, 1);
 	return (count);
 }

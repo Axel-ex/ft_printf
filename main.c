@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:54:04 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/18 14:47:34 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:24:46 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,80 @@ int	main(int argc, char **argv)
 	}
 	if (check_str(argv[1]) == 1 && argv[2][0] == 'd')
 	{
-		i = ft_printf("this is the output of an int in ft_printf: %d\n", atoi(argv[1]));
-		j = printf("this is the output of an int in printf: %d\n", atoi(argv[1]));
+		printf("mine\n");
+		i = ft_printf("this is the output of an hex: %d\n", atoi(argv[1]));
+		printf("original\n");
+		j = printf("this is the output of an hex: %d\n", atoi(argv[1]));
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
+	if (check_str(argv[1]) == 1 && argv[2][0] == 'u')
+	{
+		printf("mine\n");
+		i = ft_printf("this is the output of an unsigned: %u\n", atoi(argv[1]));
+		printf("original\n");
+		j = printf("this is the output of an unsigned: %u\n", atoi(argv[1]));
+		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
+	}
+
 	if (check_str(argv[1]) == 1 && argv[2][0] == 'x')
 	{
-		i = ft_printf("this is the output of an hex in ft_printf: %x\n", atoi(argv[1]));
-		j = printf("this is the output of an hex in printf: %x\n", atoi(argv[1]));
+		printf("mine\n");
+		i = ft_printf("this is the output of an hex: %x\n", atoi(argv[1]));
+		printf("original\n");
+		j = printf("this is the output of an hex: %x\n", atoi(argv[1]));
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
-
 	}
 	if (check_str(argv[1]) == 1 && argv[2][0] == 'X')
 	{
-		i = ft_printf("this is the output of an hex in ft_printf: %X\n", atoi(argv[1]));
-		j = printf("this is the output of an hex in printf: %X\n", atoi(argv[1]));
+		printf("mine\n");
+		i = ft_printf("this is the output of an hex: %X\n", atoi(argv[1]));
+		printf("original\n");
+		j = printf("this is the output of an hex: %X\n", atoi(argv[1]));
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
 	if (check_str(argv[1]) == 1 && argv[2][0] == 'p')
 	{
-		i = ft_printf("this is the output of an hex in ft_printf: %p\n", argv[1]);
-		j = printf("this is the output of an hex in printf: %p\n", argv[1]);
+		printf("mine\n");
+		i = ft_printf("this is the output of a ptr: %p\n", argv[1]);
+		printf("original\n");
+		j = printf("this is the output of a ptr: %p\n", argv[1]);
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
 	if (check_str(argv[1]) == 0 && argv[2][0] == 's')
 	{
-		i = ft_printf("this is the output of a string in ft_printf: %s\n", argv[1]);
-		j = printf("this is the output of a string in printf: %s\n", argv[1]);
+		printf("mine\n");
+		i = ft_printf("this is the output of a ptr: %s\n", argv[1]);
+		printf("original\n");
+		j = printf("this is the output of a ptr: %s\n", argv[1]);
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
 	//case of null pointer
 	if (check_str(argv[1]) == 0 && argv[2][0] == 'p')
 	{
+		void	*ptr = NULL;
+		printf("original:\n");
+		j = printf("this is the output of a null pointer: %p\n", ptr);
+		printf("mine:\n");
+		i = ft_printf("this is the output of a null pointer: %p\n", ptr);
+		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
+	}
+	if (check_str(argv[1]) == 0 && argv[2][0] == 's')
+	{
 		char	*ptr = NULL;
-		i = ft_printf("this is the output of a null pointer in ft_printf: %s\n", ptr);
-		j = printf("this is the output of a null pointer in printf: %s\n", ptr);
+		printf("\n\n\n");
+		printf("original:\n");
+		j = printf("this is the output of a null pointer: %s\n", ptr);
+		printf("mine:\n");
+		i = ft_printf("this is the output of a null pointer: %s\n", ptr);
+		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
+	}
+	if (check_str(argv[1]) == 0 && argv[2][0] == 'x')
+	{
+		int	ptr = 0;
+		printf("original:\n");
+		j = printf("this is the output of a null pointer: %x\n", ptr);
+		printf("mine:\n");
+		i = ft_printf("this is the output of a null pointer: %x\n", ptr);
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
 	return (0);
