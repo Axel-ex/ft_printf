@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:42:39 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/19 16:18:20 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:50:30 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ int	nb_size(int nb)
 	if (nb == 0)
 		return (1);
 	if (nb < 0)
-	{
-		size++;
 		nb = -nb;
-	}
 	while (nb > 0)
 	{
 		nb = nb / 10;
@@ -66,6 +63,7 @@ int	ft_printnb(int nb)
 	{
 		write(1, "-", 1);
 		n = -n;
+		size++;
 	}
 	if (n >= 10)
 	{
