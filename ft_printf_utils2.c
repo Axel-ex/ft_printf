@@ -6,7 +6,7 @@
 /*   By: axelchab <achabrer@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:22 by axelchab          #+#    #+#             */
-/*   Updated: 2023/05/20 20:02:02 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/22 08:55:59 by axelchab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,5 @@ int	ft_printpointer(unsigned long long pointer)
 		return (count);
 	}
 	ft_printhexa(pointer);
-	return (count);
-}
-
-int	ft_printunsigned(unsigned int nb)
-{
-	int				count;
-	unsigned long	n;
-
-	count = nb_size(nb);
-	n = nb;
-	if (n < 0)
-		n = -n;
-	if (n >= 9)
-	{
-		ft_printunsigned(n / 10);
-		n = n % 10;
-	}
-	ft_putchar_fd(n + 48, 1);
 	return (count);
 }
