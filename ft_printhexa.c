@@ -6,7 +6,7 @@
 /*   By: axelchab <achabrer@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:22 by axelchab          #+#    #+#             */
-/*   Updated: 2023/05/22 09:30:14 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/22 11:34:43 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int	size_hexa(unsigned int nb)
 	size = 0;
 	if (nb == 0)
 		return (1);
-	if (nb < 0)
-	{
-		nb = -nb;
-		size++;
-	}
 	while (nb > 0)
 	{
 		nb = nb / 16;
@@ -39,8 +34,6 @@ int	ft_printhexa(unsigned int nb)
 
 	base = "0123456789abcdef";
 	count = size_hexa(nb);
-	if (nb < 0)
-		nb = -nb;
 	if (nb >= 16)
 	{
 		ft_printhexa(nb / 16);
@@ -57,8 +50,6 @@ int	ft_printhexa_up(unsigned int nb)
 
 	count = size_hexa(nb);
 	base = "0123456789ABCDEF";
-	if (nb < 0)
-		nb = -nb;
 	if (nb >= 16)
 	{
 		ft_printhexa_up(nb / 16);

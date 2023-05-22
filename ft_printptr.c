@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 09:28:26 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/22 10:58:28 by achabrer         ###   ########.fr       */
+/*   Updated: 2023/05/22 11:31:24 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	sizeptr(unsigned long long ptr)
 {
 	int	size;
 
+	if (!ptr)
+		return (0);
 	size = 0;
-	if (ptr < 0)
-		ptr = -ptr;
 	while (ptr > 0)
 	{
 		ptr /= 16;
@@ -33,9 +33,7 @@ static void	ft_putptr(unsigned long long ptr)
 	char	*base;
 
 	base = "0123456789abcdef";
-	if (ptr < 0)
-		ptr = -ptr;
-	if (ptr >= 9)
+	if (ptr >= 16)
 	{
 		ft_putptr(ptr / 16);
 		ptr %= 16;
@@ -48,12 +46,9 @@ int	ft_printptr(unsigned long long ptr)
 	int	count;
 
 	count = 2 + sizeptr(ptr);
-	write(1, "0x", 2);
 	if (!ptr)
-	{
-		count += write(1, "(nil)", 5);
-		return (count);
-	}
+		return (write(1, "(nil)", 5));
+	write(1, "0x", 2);
 	ft_putptr(ptr);
 	return (count);
 }
