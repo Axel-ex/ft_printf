@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:54:04 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/19 16:24:46 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/22 09:57:24 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	main(int argc, char **argv)
 		j = printf("this is the output of an unsigned: %u\n", atoi(argv[1]));
 		printf("return value ft_printf = %d\nreturn value printf = %d\n", i, j);
 	}
-
 	if (check_str(argv[1]) == 1 && argv[2][0] == 'x')
 	{
 		printf("mine\n");

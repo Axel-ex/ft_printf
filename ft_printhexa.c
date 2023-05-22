@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
+/*   ft_printhexa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axelchab <achabrer@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:22 by axelchab          #+#    #+#             */
-/*   Updated: 2023/05/22 08:55:59 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/22 09:30:14 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft/libft.h"
 #include "ft_printf.h"
 
 int	size_hexa(unsigned int nb)
@@ -66,20 +65,5 @@ int	ft_printhexa_up(unsigned int nb)
 		nb = nb % 16;
 	}
 	ft_printchar(base[nb]);
-	return (count);
-}
-
-int	ft_printpointer(unsigned long long pointer)
-{
-	int	count;
-
-	count = 2 + size_hexa(pointer);
-	write(1, "0x", 2);
-	if (!pointer)
-	{
-		count += write(1, "0", 1);
-		return (count);
-	}
-	ft_printhexa(pointer);
 	return (count);
 }

@@ -1,8 +1,10 @@
 NAME	=	libftprintf.a
 
 SRC	=	ft_printf.c\
-		ft_printf_utils.c\
-		ft_printf_utils2.c \
+		ft_printstr.c\
+		ft_printnb.c \
+		ft_printhexa.c \
+		ft_printptr.c \
 		ft_printunsigned.c
 
 OBJ	=	$(SRC:.c=.o)

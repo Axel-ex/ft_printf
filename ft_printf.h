@@ -6,7 +6,7 @@
 /*   By: achabrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:33:33 by achabrer          #+#    #+#             */
-/*   Updated: 2023/05/19 15:59:07 by axelchab         ###   ########.fr       */
+/*   Updated: 2023/05/22 10:46:31 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		check_print(char c, va_list args);
 int		ft_printstr(const char *s);
 int		ft_printchar(int c);
 int		ft_printnb(int nb);
-int		ft_printpointer(unsigned long long pointer);
+int		ft_printptr(unsigned long long ptr);
 int		ft_printhexa(unsigned int nb);
 int		ft_printhexa_up(unsigned int nb);
 int		ft_printunsigned(unsigned int nb);
